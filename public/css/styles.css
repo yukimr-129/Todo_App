@@ -35,7 +35,8 @@ a.my-navbar-item:hover {
 
 .table td:nth-child(2),
 .table td:nth-child(3),
-.table td:nth-child(4) {
+.table td:nth-child(4),
+.table td:nth-child(5) {
   white-space: nowrap;
   width: 1px;
 }
@@ -44,3 +45,22 @@ a.my-navbar-item:hover {
 .form-control[readonly] {
   background-color: #fff;
 }
+
+/* .btn-default, .btn-default.disabled, .btn-default[disabled]:nth-child(2) {
+  background-color: #434a54;
+} */
+
+.btn-default:nth-child(2) {
+  background-color: #dc143c;
+}
+
+.btn:nth-child(2) {
+  color: #fff;
+  border: #dc143c;
+  margin-top: 10px;
+}
+
+.btn:nth-child(2):hover{
+  opacity: 0.7;
+}
+

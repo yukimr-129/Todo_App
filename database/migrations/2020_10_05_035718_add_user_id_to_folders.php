@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoldersTable extends Migration
+class AddUserIdToFolders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::create('folders', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title', 20);
-            $table->timestamps();
+        Schema::table('folders', function (Blueprint $table) {
+            $table->bigInteger('user_id')->unsigned();
 
+            // 外部キーを設定する
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +28,8 @@ class CreateFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('folders');
+        Schema::table('folders', function (Blueprint $table) {
+            //
+        });
     }
 }

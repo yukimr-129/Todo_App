@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
- 
+    protected $fillable = ['folder_id', 'due_date', 'title', 'status'];
+
     const STATUS = [
         1 => ['label' => '未着手', 'class' => 'label-danger'],
         2 => ['label' => '着手中', 'class' => 'label-info'],
