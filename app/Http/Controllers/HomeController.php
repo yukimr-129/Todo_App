@@ -23,7 +23,13 @@ class HomeController extends Controller
         $password = 'gest0000';
 
         if (Auth::attempt(['email' => $email, 'password' => $password])){
-            return view('home');
+            $user = Auth::user();
+            $folder = $user->folders()->first();
+            if (!isset($folder)) {
+                return view('home');
+            }else{
+                return redirect()->route('tasks.index', ['id' => $folder->id]);
+            }
         }
 
         return redirect('/');
